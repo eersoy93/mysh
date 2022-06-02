@@ -1,4 +1,4 @@
-/* mysh splitting line header file
+/* mysh launching process source file
  * Copyright (C) 2022 Erdem Ersoy (eersoy93)
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,9 +15,33 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef MYSH_SPLIT_H
-#define MYSH_SPLIT_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
 
-char ** mysh_split(char * line);
+int mysh_split(char ** args) {
+    pid_t pid = 0;
+    pid_t pid_waiting = 0;
+    int status = 0;
 
-#endif
+    pid = fork();
+    if (pid == 0) {
+        if (execvp(args[0], args) == -1) {
+            perror("mysh");
+        }
+        exit(EXIT_FAILURE);
+    }
+    else if (pid < 0) {
+        perror("mysh");
+    }
+    else {
+        do {
+            pid_waiting = waitpid(pid, &status, WUNTRACED);
+        } while (!(WIFEXITED(status) && !(WIFSIGNALED(status));
+    }
+
+    return 1;
+}
+

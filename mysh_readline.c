@@ -1,4 +1,4 @@
-/* mysh reading line main source file
+/* mysh reading line source file
  * Copyright (C) 2022 Erdem Ersoy (eersoy93)
  *
  * This program is free software: you can redistribute it and/or modify

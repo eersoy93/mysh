@@ -1,4 +1,4 @@
-/* mysh splitting line header file
+/* mysh launching process header file
  * Copyright (C) 2022 Erdem Ersoy (eersoy93)
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,6 +18,6 @@
 #ifndef MYSH_SPLIT_H
 #define MYSH_SPLIT_H
 
-char ** mysh_split(char * line);
+int mysh_launch(char ** args);
 
 #endif
