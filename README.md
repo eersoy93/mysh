@@ -1,5 +1,5 @@
 # mysh
-A Linux shell created for learning.
+A Linux shell created for learning. (WORK IN PROGRESS!!!)
 
 # References
 
