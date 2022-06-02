@@ -1,4 +1,4 @@
-/* mysh main source file
+/* mysh reading line main source file
  * Copyright (C) 2022 Erdem Ersoy (eersoy93)
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,12 +15,23 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "mysh_loop.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
-    mysh_loop();
-    return EXIT_SUCCESS;
+char * mysh_readline(void) {
+    char * line = NULL;
+    ssize_t buffersize = 0;
+
+    if (getline(&line, &buffersize, stdin) == -1) {
+        if (feof(stdin)) {
+            exit(EXIT_SUCCESS);
+        }
+        else {
+            perror("readline");
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    return line;
 }
+

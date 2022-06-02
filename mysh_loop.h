@@ -1,4 +1,4 @@
-/* mysh main source file
+/* mysh loop main header file
  * Copyright (C) 2022 Erdem Ersoy (eersoy93)
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,12 +15,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "mysh_loop.h"
+#ifndef MYSH_LOOP_H
+#define MYSH_LOOP_H
 
-#include <stdio.h>
-#include <stdlib.h>
+void mysh_loop(void);
 
-int main(void) {
-    mysh_loop();
-    return EXIT_SUCCESS;
-}
+#endif

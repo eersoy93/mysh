@@ -1,4 +1,4 @@
-/* mysh main source file
+/* mysh loop main source file
  * Copyright (C) 2022 Erdem Ersoy (eersoy93)
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,12 +15,20 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "mysh_loop.h"
+#include "mysh_readline.h"
 
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(void) {
-    mysh_loop();
-    return EXIT_SUCCESS;
+void mysh_loop(void) {
+    char *line;
+    char **args;
+    int status = 0;
+
+    do {
+        printf("%s", "> ");
+        line = mysh_readline();
+        args = mysh_split(line);
+        status = mysh_execute(args);
+    }while(status);
 }
+
