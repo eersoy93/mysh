@@ -14,5 +14,5 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-mysh: mysh.c mysh_loop.c
-	gcc -Wall -Wextra -Werror -Wpedantic -std=gnu18 mysh.c mysh_loop.c -o mysh
+mysh: mysh.c mysh_loop.c mysh_readline.c mysh_split.c
+	gcc -Wall -Wextra -Werror -Wpedantic -std=gnu18 mysh.c mysh_loop.c mysh_readline.c mysh_split.c -o mysh

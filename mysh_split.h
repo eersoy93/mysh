@@ -1,4 +1,4 @@
-/* mysh loop main source file
+/* mysh splitting line main header file
  * Copyright (C) 2022 Erdem Ersoy (eersoy93)
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,21 +15,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "mysh_readline.h"
-#include "mysh_split.h"
+#ifndef MYSH_SPLIT_H
+#define MYSH_SPLIT_H
 
-#include <stdio.h>
+char ** mysh_split(char * line);
 
-void mysh_loop(void) {
-    char * line;
-    char ** args;
-    int status = 0;
-
-    do {
-        printf("%s", "> ");
-        line = mysh_readline();
-        args = mysh_split(line);
-        status = mysh_execute(args);
-    }while(status);
-}
-
+#endif

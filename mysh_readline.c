@@ -20,7 +20,7 @@
 
 char * mysh_readline(void) {
     char * line = NULL;
-    ssize_t buffersize = 0;
+    size_t buffersize = 0;
 
     if (getline(&line, &buffersize, stdin) == -1) {
         if (feof(stdin)) {
