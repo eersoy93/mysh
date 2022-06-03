@@ -19,11 +19,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 
-int mysh_split(char ** args) {
+int mysh_execute(char ** args) {
     pid_t pid = 0;
-    pid_t pid_waiting = 0;
     int status = 0;
 
     pid = fork();
@@ -38,8 +38,8 @@ int mysh_split(char ** args) {
     }
     else {
         do {
-            pid_waiting = waitpid(pid, &status, WUNTRACED);
-        } while (!(WIFEXITED(status) && !(WIFSIGNALED(status));
+            waitpid(pid, &status, WUNTRACED);
+        } while (!(WIFEXITED(status)) && !(WIFSIGNALED(status)));
     }
 
     return 1;

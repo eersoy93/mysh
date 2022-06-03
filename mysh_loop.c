@@ -15,6 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include "mysh_execute.h"
 #include "mysh_readline.h"
 #include "mysh_split.h"
 

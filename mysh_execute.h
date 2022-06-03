@@ -15,9 +15,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef MYSH_SPLIT_H
-#define MYSH_SPLIT_H
+#ifndef MYSH_EXECUTE_H
+#define MYSH_EXECUTE_H
 
-int mysh_launch(char ** args);
+int mysh_execute(char ** args);
 
 #endif
